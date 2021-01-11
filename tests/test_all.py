@@ -1,3 +1,4 @@
+# coding: utf8
 "Updated version"
 
 import ast
@@ -7,8 +8,9 @@ import numpy as np
 
 
 prefix = "import os\nfrom torchvision import transforms\nfrom torchvision.datasets import MNIST, FashionMNIST\nfmnist_train = FashionMNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())\n"
-with open("rapport.py", "rb") as f:
-    p = ast.parse(prefix + f.read())
+with open("rapport.py", "r") as f:
+    module_text = prefix + f.read()
+    p = ast.parse(module_text)
 
 for node in p.body[:]:
     if not isinstance(node, (ast.FunctionDef, ast.Import, ast.ImportFrom, ast.Assign)):

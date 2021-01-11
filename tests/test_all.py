@@ -8,8 +8,9 @@ import numpy as np
 
 
 prefix = "import os\nfrom torchvision import transforms\nfrom torchvision.datasets import MNIST, FashionMNIST\nfmnist_train = FashionMNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())\n"
-with open("rapport.py", "r") as f:
-    module_text = prefix + f.read()
+with open("rapport.py") as f:
+    #module_text = prefix + f.read()
+    module_text = f.read()
     p = ast.parse(module_text)
 
 for node in p.body[:]:

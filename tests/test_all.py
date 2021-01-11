@@ -6,8 +6,8 @@ import sys
 import numpy as np
 
 
-prefix = u"import os\nfrom torchvision import transforms\nfrom torchvision.datasets import MNIST, FashionMNIST\nfmnist_train = FashionMNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())\n"
-with open("rapport.py") as f:
+prefix = "import os\nfrom torchvision import transforms\nfrom torchvision.datasets import MNIST, FashionMNIST\nfmnist_train = FashionMNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())\n"
+with open("rapport.py", "rb") as f:
     p = ast.parse(prefix + f.read())
 
 for node in p.body[:]:
